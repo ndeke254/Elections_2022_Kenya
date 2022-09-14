@@ -8,6 +8,7 @@ library(snakecase)
 library(openxlsx)
 library(leaflet)
 library(shinyWidgets)
+library(bslib)
 
 
 #import data file
@@ -26,3 +27,6 @@ county_shp <-readOGR(dsn= "data/shp/county.shp",
                      layer = "county", 
                      verbose = FALSE, 
                      stringsAsFactors = FALSE)
+
+# myApp theme
+my_theme <- bs_theme(bootswatch = "cosmo")
