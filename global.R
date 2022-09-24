@@ -9,8 +9,8 @@ library(openxlsx)
 library(leaflet)
 library(shinyWidgets)
 library(bslib)
-
-
+library(shinydashboard)
+library(shinyWidgets)
 #import data file
 results <- fread(file = 'data/results.csv')
 totals <- fread(file = 'data/totals.csv')

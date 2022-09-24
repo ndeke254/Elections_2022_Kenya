@@ -34,14 +34,8 @@ position: absolute;
  }
 
 ")),
-  tags$div(
-    class = 'logo',
-    tags$a(
-      tags$img(
-        src ='world.gif',
-        width ='50px'
-      )
-      )
+  header = tagList(
+    useShinydashboard()
     ),
   title = tags$div(
     class ='logo',
@@ -50,12 +44,22 @@ position: absolute;
         src='shape.png',
         width='50px'
       ),
-      "KENYA'S DECISION 2022"
+      "KENYA'S CHOICE 2022"
     )
   ),
  tabPanel(
    title = 'Overall',
-   value = 'overall'
+   value = 'overall',
+   column(6,
+          wellPanel(
+     
+   )
+   ),
+   column(6,
+          wellPanel(
+            
+          )
+   )
  ),
  tabPanel(
    #create a select input
@@ -70,7 +74,16 @@ position: absolute;
                                     maxItems = '1',
                                     onDropdownOpen = I("function($dropdown) {if (!this.lastQuery.length) {this.close(); this.settings.openOnFocus = false;}}"),
                                     onType = I("function (str) {if (str === \"\") {this.close();}}"))
-                     )
+                     ),
+   fluidRow(
+     infoBoxOutput('county_name',
+                   width = 2),
+     valueBoxOutput('registered',
+                    width = 2)
+   ),
+   wellPanel(
+     
+   )
                    ),
  tabPanel(
    checkboxInput(
