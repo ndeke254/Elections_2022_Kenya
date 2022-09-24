@@ -34,14 +34,33 @@ position: absolute;
  }
 
 ")),
- title = 'KENYA CHOICE 2022',
+  tags$div(
+    class = 'logo',
+    tags$a(
+      tags$img(
+        src ='world.gif',
+        width ='50px'
+      )
+      )
+    ),
+  title = tags$div(
+    class ='logo',
+    tags$a(
+      tags$img(
+        src='shape.png',
+        width='50px'
+      ),
+      "KENYA'S DECISION 2022"
+    )
+  ),
  tabPanel(
-   title ='Overall',
+   title = 'Overall',
    value = 'overall'
  ),
- tabPanel(#create a select input
-                   selectizeInput(
-                     inputId = 'search_name',
+ tabPanel(
+   #create a select input
+   selectizeInput(
+     inputId = 'search_name',
                      label = 'County:',
                      width = '200px',
                      choices = NULL,
@@ -54,12 +73,16 @@ position: absolute;
                      )
                    ),
  tabPanel(
+   checkboxInput(
+     inputId = 'check',
+     label = '',
+     width = '12px'
+   )
+ ),
+ tabPanel(
    title ='Diaspora',
    value = 'diaspora'
  ),
- tabPanel(
-   shinythemes::themeSelector()
-                   ),
  
  includeCSS(path = "www/styles.css")
 )

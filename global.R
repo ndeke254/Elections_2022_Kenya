@@ -27,6 +27,3 @@ county_shp <-readOGR(dsn= "data/shp/county.shp",
                      layer = "county", 
                      verbose = FALSE, 
                      stringsAsFactors = FALSE)
-
-# myApp theme
-my_theme <- bs_theme(bootswatch = "cosmo")
