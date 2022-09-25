@@ -6,20 +6,25 @@
     background-color: #cecfbe;
         padding-top: 10px;
     }
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: candara;
+}
 .navbar-default {
-    background-color: #ebfaff;
-    border-color: #455858;
+    background-color: rgb(230 255 255);
+    border-color: #ffffff;
         margin: auto;
+        box-shadow: inset 0px 1px 5px 0px #000000fa;
+        
 }
 .navbar-static-top {
-    border-radius: 60px;
+    border-radius: 50px;
     z-index: 1000;
-    border-width: 0px 0px 3px;
+    border-width: 0px 0px 2px;
     width: fit-content;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #000000;
-    background-color: #f3d7a7;
+    background-color: #aabdbd8c;
         border-radius: 20px;
 }
 .navbar-default .navbar-nav>li>a {
@@ -101,10 +106,10 @@ a:focus, a:hover {
     color: #def6f7!important;
 }
 .info-box-icon {
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 20px;
     display: block;
     float: left;
     height: 90px;
@@ -113,4 +118,64 @@ a:focus, a:hover {
     font-size: 30px;
     line-height: 90px; 
     background: rgba(0,0,0,.2);
+    border: solid 3px;
+
 }
+.info-box {
+    display: block;
+    min-height: 90px;
+    background: rgb(230 255 255);
+    width: 100%;
+    box-shadow: 2px 2px 2px #7b95b7;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+.info-box-text, .progress-description {
+  text-transform: uppercase;
+    display: block;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 700;
+}
+.info-box-number {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+}
+.small-box {
+    border-radius: 20px;
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    box-shadow: 0px 1px 1px 1.5px #cef9ff;
+}
+.small-box .icon-large {
+    position: absolute;
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    font-size: 50px;
+        color: #aabdbd8c;
+
+}
+.small-box h3 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+}
+p {
+    margin: 0 0 15px;
+    font-family: candara;
+}
+.small-box p {
+    font-size: 20px;
+    font-weight: 700;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+   }
