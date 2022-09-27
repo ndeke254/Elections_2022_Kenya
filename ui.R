@@ -79,12 +79,32 @@ position: absolute;
      infoBoxOutput('county_name',
                    width = 2),
      valueBoxOutput('registered',
-                    width = 2)
+                    width = 2),
+     valueBoxOutput('valid',
+                    width = 2),
+     valueBoxOutput('rejected',
+                    width = 2),
+     valueBoxOutput('raila',
+                    width = 2),
+     valueBoxOutput('ruto',
+                    width = 2),
+     valueBoxOutput('waihiga',
+                    width = 2),
+     valueBoxOutput('wajackoya',
+                    width = 2),
+     echarts4rOutput('clock') |> loading()
    ),
-   wellPanel(
-     
-   )
-                   ),
+   column(6,
+          wellPanel(
+            leafletOutput("livemap") |> loading_1()
+          )
+   ),
+   column(6,
+          wellPanel( 
+            echarts4rOutput('graph') |> loading_1()
+            )
+          )
+   ),
  tabPanel(
    checkboxInput(
      inputId = 'check',

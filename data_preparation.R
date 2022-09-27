@@ -38,6 +38,15 @@ totals <- results[c(48,49),]
 # slice the two rows off
 results <- results |> slice(-c(48,49))
 
+# order of names to match with the ones in the shape
+results <- results |> arrange(county)
+results <- results |> add_row(results[31])
+results <- results |> slice(-c(31))
+
+# colors for the map
+results <- results |>
+  mutate (col2022 = case_when(raila_per > ruto_per ~'blue', TRUE~'yellow'))
+
 # write the data
 fwrite(results,'data/results.csv')
 fwrite(totals,'data/totals.csv')

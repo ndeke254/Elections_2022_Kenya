@@ -1,10 +1,10 @@
  body {   
-    font-family: "candara;
+    font-family: "candara";
     font-size: 16px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #cecfbe;
-        padding-top: 10px;
+    background-color: rgb(0 0 0 / 17%);
+        padding-top: 5px;
     }
     .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: candara;
@@ -112,7 +112,6 @@ a:focus, a:hover {
     border-bottom-left-radius: 20px;
     display: block;
     float: left;
-    height: 90px;
     width: 90px;
     text-align: center;
     font-size: 30px;
@@ -179,3 +178,16 @@ p {
     margin-right: -15px;
     margin-left: -15px;
    }
+   .tab-content>.active {
+    display: block;
+    padding-top: 10px;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #a59d9d;
+    border-radius: 40px;
+    box-shadow: inset 0px 0px 8px 2px #b9c2c7;
+}
