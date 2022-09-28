@@ -42,10 +42,16 @@ county_shp@data$zoom <- c(8.2, 8.7, 9.0, 9.0, 9.0, 9.2, 7.0, 9.0,
 # map colors
 county_shp@data$col2022 <- c(results$col2022)
 
+# transfer county codes
+county_shp@data$code <- c(results$sno)
+
 # loading spinner
 loading <- function(x) {
-  withSpinner(x, type = 1, size = 0.5,     
-              color = "#e6ffff",
+  withSpinner(x, image = 'choice.png',
+              hide.ui = FALSE)
+}
+loading_2 <- function(x) {
+  withSpinner(x, image = 'name.gif',
               hide.ui = FALSE)
 }
 loading_1 <- function(x) {

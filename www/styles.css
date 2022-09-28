@@ -191,3 +191,12 @@ p {
     border-radius: 40px;
     box-shadow: inset 0px 0px 8px 2px #b9c2c7;
 }
+.leaflet-container {
+    font-family: candara;
+        background: rgb(230 255 255 / 0%);
+}
+.leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
+    position: absolute;
+    left: -20px;
+    top: 10px;
+}

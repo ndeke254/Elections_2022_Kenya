@@ -9,9 +9,9 @@ server <- function(input, output, session) {
     choices = results$county,
     selected = ''
   )  
+  observeEvent(input$search_name,{
   # county selection
   county_selection <- input$search_name
-  
   # when a county is selected
   if(isTruthy(county_selection)) { 
   selected <- reactive({
@@ -109,9 +109,142 @@ server <- function(input, output, session) {
       e_toolbox_feature(feature = "saveAsImage") |>
       e_color(my_colors2022)
     }) 
+  # map
+  name1 <- input$search_name
+  cnt <- county_shp@data%>%filter(name%in%name1)
+  col <- cnt |> 
+    select(col2022)
+  col_name <- col[[1]]
+  county_shp@data <- county_shp@data |> 
+    mutate (cols=case_when(name%in%name1 ~ col_name, TRUE~'white' ))
+  # plot
+  output$livemap <- renderLeaflet({
+  leaflet(county_shp)%>% 
+    setView(lng=37.9083,lat=0.1769,zoom = 6)%>%
+    addPolygons(data = county_shp,
+                color = "brown",
+                layerId= county_shp$name,
+                weight = 1,
+                smoothFactor = 0.5,
+                opacity = 3,
+                fillOpacity = 2,
+                fillColor = county_shp$cols,
+                highlightOptions = highlightOptions(color = "black",
+                                                    weight = 2,
+                                                    bringToFront = TRUE),
+                label = paste(
+                  "<strong>County:</strong>",county_shp$name
+                ) %>%
+                  lapply(htmltools::HTML),
+                labelOptions = labelOptions( style = list("font-weight" = "normal", 
+                                                          padding = "3px 8px"), 
+                                             textsize = "13px", direction = "auto")
+    )%>%
+    addLegend(
+      layerId="key",
+      position = "topright",
+      colors=c('blue','yellow'),
+      labels = c('AZIMIO','UDA'),
+      opacity = 3,
+      title ='POLITICAL PARTY',
+      className = "info legend"
+    )
+  })
   }
   # when the selection is empty 
   else {
+    output$county_name <- renderInfoBox({
+      infoBox(
+        title = 'OVERALL',
+        value = 'KENYA',
+        icon = icon("credit-card")
+      )
+    })
+    output$registered <- renderValueBox({
+      valueBox(
+        'REGISTERED',
+        value = totals $registered[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$clock<-renderEcharts4r({
+      per <- (totals $valid[2] + totals $rejected[2] ) / totals $registered[2]
+      turnout <- round(per*100,2)
+      e_charts() |> 
+        e_gauge(turnout, "% PERCENT") |> 
+        e_animation(duration = 4000)|>
+        e_title('% TURNOUT',left='center')
+    })
+    output$valid <- renderValueBox({
+      valueBox(
+        'VALID',
+        value = totals $valid[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$rejected <- renderValueBox({
+      valueBox(
+        'REJECTED',
+        value = totals $rejected[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$raila <- renderValueBox({
+      valueBox(
+        'RAILA',
+        value = totals $raila[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$ruto <- renderValueBox({
+      valueBox(
+        'RUTO',
+        value = totals $ruto[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$waihiga <- renderValueBox({
+      valueBox(
+        'WAIHIGA',
+        value = totals $waihiga[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    output$wajackoya <- renderValueBox({
+      valueBox(
+        'WAJACKOYA',
+        value = totals $wajackoya[2] |>
+          prettyNum(big.mark =',', scientific = FALSE),
+        icon = icon("bar-chart")
+      )
+    })
+    # county graph data
+    data_county <- reactive ({ 
+      data.frame(
+        COUNTY = c("% VOTES","% VOTES","% VOTES","% VOTES"),
+        CANDIDATE = c('RAILA','RUTO','WAIHIGA','WAJACKOYA'),
+        PERCENTAGE= c(totals $raila_per[2],totals $ruto_per[2],
+                      totals $waihiga_per[2],totals $wajackoya_per[2])
+      )
+    })
+    # plot graph
+    output$graph <- renderEcharts4r({
+      data_county() |> 
+        group_by(CANDIDATE) |> 
+        e_chart(COUNTY) |>
+        e_bar(PERCENTAGE) |>
+        e_animation(duration = 4000)|>
+        e_axis_labels(x='',y = '% VOTES GARNERED')|> 
+        e_tooltip(trigger='item')|>
+        e_toolbox_feature(feature = "saveAsImage") |>
+        e_color(my_colors2022)
+    }) 
   output$livemap <- renderLeaflet({
     leaflet(county_shp) |>
       setView(lng=37.9083,lat=0.1769,zoom = 6) |>
@@ -128,12 +261,13 @@ server <- function(input, output, session) {
                     weight = 2,
                     bringToFront = TRUE),
                   label = paste(
-                    "<strong>COUNTY:</strong>",county_shp$name
+                    "<strong>County:</strong>",county_shp$code,county_shp$name
                   ) |>
                     lapply(htmltools::HTML),
                   labelOptions = labelOptions(
                     style = list(
                       "font-weight" = "normal",
+                      color = 'red',
                       padding = "3px 8px"),
                     textsize = "13px", 
                     direction = "auto")
@@ -148,4 +282,5 @@ server <- function(input, output, session) {
         className = "info legend")
   })
   }
+  })
 }

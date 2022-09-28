@@ -81,7 +81,7 @@ position: absolute;
      valueBoxOutput('registered',
                     width = 2),
      valueBoxOutput('valid',
-                    width = 2),
+                    width = 2) |> loading_2(),
      valueBoxOutput('rejected',
                     width = 2),
      valueBoxOutput('raila',
@@ -95,14 +95,10 @@ position: absolute;
      echarts4rOutput('clock') |> loading()
    ),
    column(6,
-          wellPanel(
             leafletOutput("livemap") |> loading_1()
-          )
    ),
    column(6,
-          wellPanel( 
             echarts4rOutput('graph') |> loading_1()
-            )
           )
    ),
  tabPanel(
