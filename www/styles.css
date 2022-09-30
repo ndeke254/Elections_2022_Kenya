@@ -182,15 +182,6 @@ p {
     display: block;
     padding-top: 10px;
 }
-.well {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #a59d9d;
-    border-radius: 40px;
-    box-shadow: inset 0px 0px 8px 2px #b9c2c7;
-}
 .leaflet-container {
     font-family: candara;
         background: rgb(230 255 255 / 0%);
@@ -199,4 +190,22 @@ p {
     position: absolute;
     left: -20px;
     top: 10px;
+}
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: 2px solid rgb(141 145 144);
+    background-clip: padding-box;
+}
+#livemap{height: calc(100vh - 40px) !important;}
+
+#clock {
+  zoom: 0.7;
+  margin-left: -140px;
+    margin-top: 200px;
+}
+.info {
+    padding: 6px 8px;
+    font-family: candara;
+    background: #def6f7;
+    box-shadow: 2px 2px 2px #7b95b7;
+    border-radius: 5px;
 }

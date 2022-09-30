@@ -92,14 +92,14 @@ position: absolute;
                     width = 2),
      valueBoxOutput('wajackoya',
                     width = 2),
-     echarts4rOutput('clock') |> loading()
-   ),
+     echarts4rOutput('clock') |> loading(),
    column(6,
             leafletOutput("livemap") |> loading_1()
    ),
    column(6,
             echarts4rOutput('graph') |> loading_1()
           )
+   )
    ),
  tabPanel(
    checkboxInput(

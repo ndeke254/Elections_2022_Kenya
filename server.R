@@ -104,7 +104,7 @@ server <- function(input, output, session) {
       e_chart(COUNTY) |>
       e_bar(PERCENTAGE) |>
       e_animation(duration = 4000)|>
-      e_axis_labels(x='',y = '% VOTES GARNERED')|> 
+      e_axis_labels(x='CANDIDATES',y = '% VOTES GARNERED')|> 
       e_tooltip(trigger='item')|>
       e_toolbox_feature(feature = "saveAsImage") |>
       e_color(my_colors2022)
@@ -233,6 +233,7 @@ server <- function(input, output, session) {
                       totals $waihiga_per[2],totals $wajackoya_per[2])
       )
     })
+    
     # plot graph
     output$graph <- renderEcharts4r({
       data_county() |> 
