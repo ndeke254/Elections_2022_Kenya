@@ -81,7 +81,7 @@ position: absolute;
      valueBoxOutput('registered',
                     width = 2),
      valueBoxOutput('valid',
-                    width = 2) |> loading_2(),
+                    width = 2),
      valueBoxOutput('rejected',
                     width = 2),
      valueBoxOutput('raila',

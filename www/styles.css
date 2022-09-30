@@ -3,8 +3,8 @@
     font-size: 16px;
     line-height: 1.42857143;
     color: #333;
-    background-color: rgb(0 0 0 / 17%);
-        padding-top: 5px;
+    background-color: #b9b9b9c7;
+        padding-top: 10px;
     }
     .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: candara;
@@ -154,14 +154,14 @@ a:focus, a:hover {
 .small-box .icon-large {
     position: absolute;
     top: auto;
-    bottom: 5px;
-    right: 5px;
-    font-size: 50px;
-        color: #aabdbd8c;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+        color: #637e7e8c;
 
 }
 .small-box h3 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 300;
     margin: 0 0 10px 0;
     white-space: nowrap;
@@ -172,7 +172,7 @@ p {
 }
 .small-box p {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
 }
 .row {
     margin-right: -15px;
@@ -185,17 +185,18 @@ p {
 .leaflet-container {
     font-family: candara;
         background: rgb(230 255 255 / 0%);
+            margin-top: -160px;
 }
 .leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
     position: absolute;
     left: -20px;
-    top: 10px;
+    top: -20px;
 }
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
     border: 2px solid rgb(141 145 144);
     background-clip: padding-box;
 }
-#livemap{height: calc(100vh - 40px) !important;}
+#livemap{height: calc(80vh - 40px) !important;}
 
 #clock {
   zoom: 0.7;
@@ -205,7 +206,20 @@ p {
 .info {
     padding: 6px 8px;
     font-family: candara;
-    background: #def6f7;
-    box-shadow: 2px 2px 2px #7b95b7;
+    background: #688b95;
+    box-shadow: 0px 1px 1px 1.5px #cef9ff;
     border-radius: 5px;
+}
+.leaflet-right .leaflet-control {
+    margin-right: 50px;
+}
+.leaflet-top .leaflet-control {
+    margin-top: 170px;
+}
+#graph {
+  margin-top: -250px;
+}
+.legend {
+    line-height: 18px;
+    color: #e0feff;
 }

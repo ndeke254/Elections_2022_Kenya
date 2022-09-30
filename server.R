@@ -29,7 +29,7 @@ server <- function(input, output, session) {
       'REGISTERED',
       value = selected() $registered |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("pencil")
     )
   })
   output$clock<-renderEcharts4r({
@@ -45,7 +45,7 @@ server <- function(input, output, session) {
       'VALID',
       value = selected() $valid |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("check")
     )
   })
   output$rejected <- renderValueBox({
@@ -53,7 +53,7 @@ server <- function(input, output, session) {
       'REJECTED',
       value = selected() $rejected |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("xmark")
     )
   })
   output$raila <- renderValueBox({
@@ -61,7 +61,7 @@ server <- function(input, output, session) {
       'RAILA',
       value = selected() $raila |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("signal")
     )
   })
   output$ruto <- renderValueBox({
@@ -77,7 +77,7 @@ server <- function(input, output, session) {
       'WAIHIGA',
       value = selected() $waihiga |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("line-chart")
     )
   })
   output$wajackoya <- renderValueBox({
@@ -85,7 +85,7 @@ server <- function(input, output, session) {
       'WAJACKOYA',
       value = selected() $wajackoya |>
         prettyNum(big.mark =',', scientific = FALSE),
-      icon = icon("bar-chart")
+      icon = icon("pie-chart")
     )
   })
   # county graph data
@@ -119,8 +119,10 @@ server <- function(input, output, session) {
     mutate (cols=case_when(name%in%name1 ~ col_name, TRUE~'white' ))
   # plot
   output$livemap <- renderLeaflet({
-  leaflet(county_shp)%>% 
-    setView(lng=37.9083,lat=0.1769,zoom = 6)%>%
+  leaflet(county_shp,options = leafletOptions( zoomControl = FALSE)) |>
+    setView(lng = 37.9083,lat = 0.1769,zoom = 6
+            ) |>
+      addTiles(options = tileOptions(minZoom = 6, maxZoom = 6)) |>
     addPolygons(data = county_shp,
                 color = "brown",
                 layerId= county_shp$name,
@@ -139,7 +141,7 @@ server <- function(input, output, session) {
                 labelOptions = labelOptions( style = list("font-weight" = "normal", 
                                                           padding = "3px 8px"), 
                                              textsize = "13px", direction = "auto")
-    )%>%
+    ) |>
     addLegend(
       layerId="key",
       position = "topright",
@@ -165,7 +167,7 @@ server <- function(input, output, session) {
         'REGISTERED',
         value = totals $registered[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("pencil")
       )
     })
     output$clock<-renderEcharts4r({
@@ -181,7 +183,7 @@ server <- function(input, output, session) {
         'VALID',
         value = totals $valid[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("check")
       )
     })
     output$rejected <- renderValueBox({
@@ -189,7 +191,7 @@ server <- function(input, output, session) {
         'REJECTED',
         value = totals $rejected[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("xmark")
       )
     })
     output$raila <- renderValueBox({
@@ -197,7 +199,7 @@ server <- function(input, output, session) {
         'RAILA',
         value = totals $raila[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("signal")
       )
     })
     output$ruto <- renderValueBox({
@@ -213,7 +215,7 @@ server <- function(input, output, session) {
         'WAIHIGA',
         value = totals $waihiga[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("line-chart")
       )
     })
     output$wajackoya <- renderValueBox({
@@ -221,7 +223,7 @@ server <- function(input, output, session) {
         'WAJACKOYA',
         value = totals $wajackoya[2] |>
           prettyNum(big.mark =',', scientific = FALSE),
-        icon = icon("bar-chart")
+        icon = icon("pie-chart")
       )
     })
     # county graph data
@@ -247,8 +249,9 @@ server <- function(input, output, session) {
         e_color(my_colors2022)
     }) 
   output$livemap <- renderLeaflet({
-    leaflet(county_shp) |>
+    leaflet(county_shp,options = leafletOptions( zoomControl = FALSE)) |>
       setView(lng=37.9083,lat=0.1769,zoom = 6) |>
+      addTiles(options = tileOptions(minZoom = 6, maxZoom = 6)) |>
       addPolygons(data =county_shp,
                   color = "brown",
                   layerId = county_shp$name,
