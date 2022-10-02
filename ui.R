@@ -36,31 +36,34 @@ position: absolute;
 ")),
   header = tagList(
     useShinydashboard()
-    ),
+      ),
   title = tags$div(
     class ='logo',
+    tags$img(
+      checkboxInput(
+        inputId = 'check',
+        label = '',
+        width = '12px')
+    ),
     tags$a(
       tags$img(
-        src='shape.png',
-        width='50px'
+        src = 'iebc.png',
+        width = '60px'
       ),
-      "KENYA'S CHOICE 2022"
+      tags$img(
+      actionButton(inputId = 'diaspora',
+                   label = 'Diaspora')
+      ),
+      tags$img(
+        src = 'shape.png',
+        width = '50px'
+      ),
+      tags$img(
+        src = 'choice.png',
+        width = '120px'
+      )
     )
   ),
- tabPanel(
-   title = 'Overall',
-   value = 'overall',
-   column(6,
-          wellPanel(
-     
-   )
-   ),
-   column(6,
-          wellPanel(
-            
-          )
-   )
- ),
  tabPanel(
    #create a select input
    selectizeInput(
@@ -101,18 +104,6 @@ position: absolute;
           )
    )
    ),
- tabPanel(
-   checkboxInput(
-     inputId = 'check',
-     label = '',
-     width = '12px'
-   )
- ),
- tabPanel(
-   title ='Diaspora',
-   value = 'diaspora'
- ),
- 
  includeCSS(path = "www/styles.css")
 )
 

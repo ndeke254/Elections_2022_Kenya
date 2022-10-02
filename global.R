@@ -13,6 +13,8 @@ library(shinydashboard)
 library(shinyWidgets)
 library(echarts4r)
 library(shinycssloaders)
+library(maps)
+library(shinyBS)
 #import data file
 results <- fread(file = 'data/results.csv')
 totals <- fread(file = 'data/totals.csv')
@@ -60,5 +62,5 @@ loading_1 <- function(x) {
               hide.ui = FALSE)
 }
 # graph colors
-my_colors2022 <- c('blue','yellow','brown','green')
+my_colors2022 <- c('blue','yellow','red','green')
 
