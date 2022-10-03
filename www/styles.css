@@ -10,7 +10,7 @@
     font-family: candara;
 }
 .navbar-default {
-    background-color: rgb(230 255 255);
+    background-color: rgb(222 251 199);
     border-color: #ffffff;
         margin: auto;
         box-shadow: inset 0px 1px 5px 0px #000000fa;
@@ -117,7 +117,7 @@ a:focus, a:hover {
     font-size: 30px;
     line-height: 90px; 
     background: rgba(0,0,0,.2);
-    border: solid 3px;
+    border: solid #dcf3f2 3px;
 
 }
 .info-box {
@@ -177,6 +177,7 @@ p {
 .row {
     margin-right: 15px;
     margin-left: 15px;
+    margin-top: -36px;
    }
    .tab-content>.active {
     display: block;
@@ -237,5 +238,42 @@ alert-warning, .bg-yellow, .callout.callout-warning, .label-warning, .modal-warn
 }
 @media (min-width: 768px)
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    margin-left: -45px;
+}
+.btn {
+    border-radius: 40px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #d9000000;
+}
+.btn-default.hover, .btn-default:active, .btn-default:hover {
+    background-color: #d5e3fb;
+}
+.btn-default:hover {
+    color: #333;
+    background-color: #d2e1eb;
+    border-color: #999;
+}
+.btn {
+    border-radius: 40px;
+    box-shadow: none;
+    border: 1px solid #bfb1b1;
+}
+div#extract {
+    margin-left: 95px;
+}
+@media (min-width: 768px)
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin-right: 0;
+    margin-left: 20px;
+        float: left;
+}
+a {
+    float: right;
+}
+container-fluid {
+    padding-right: 45px;
+    padding-left: 45px;
+    margin-right: auto;
     margin-left: auto;
 }
