@@ -34,26 +34,33 @@ position: absolute;
  }
 
 ")),
-  header = tagList(
-    useShinydashboard()
-      ),
-  title = tags$div(
-    class ='logo',
+  windowTitle = 'Election Results 2022',
+  bsTooltip("check","Extract county","right","hover"),
+    header = tagList(
+    useShinydashboard(),
+    tags$div(
+      id = 'extract',
     tags$img(
       checkboxInput(
         inputId = 'check',
         label = '',
-        width = '12px')
+        width = '12px'))
     ),
+      ),
+  title = tags$div(
+    class ='logo',
     tags$a(
       tags$img(
-        src = 'iebc.png',
-        width = '60px'
-      ),
-      tags$img(
+        class = 'button',
       actionButton(inputId = 'diaspora',
                    label = 'Diaspora')
       ),
+      tags$img(
+        src = 'iebc.png',
+        width = '60px'
+      )
+      ),
+    tags$a(
       tags$img(
         src = 'shape.png',
         width = '50px'
@@ -61,9 +68,8 @@ position: absolute;
       tags$img(
         src = 'choice.png',
         width = '120px'
-      )
-    )
-  ),
+      ))
+    ),
  tabPanel(
    #create a select input
    selectizeInput(
