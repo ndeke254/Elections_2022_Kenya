@@ -1,5 +1,6 @@
 # application user interface
 ui <- navbarPage(
+  tags$audio(src = "sound.mp3",type = "audio/mp3", autoplay = TRUE),
   tags$style(HTML("
 
 .selectize-input.items.not-full.has-options:before {
