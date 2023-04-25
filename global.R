@@ -15,6 +15,9 @@ library(echarts4r)
 library(shinycssloaders)
 library(maps)
 library(shinyBS)
+library(shinydashboardPlus)
+library(shiny.fluent)
+
 #import data file
 results <- fread(file = "data/results.csv")
 totals <- fread(file = "data/totals.csv")
