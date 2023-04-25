@@ -1,6 +1,6 @@
 # application user interface
 ui <- navbarPage(
-  tags$audio(src = "sound.mp3", type = "audio/mp3", autoplay = TRUE),
+  tags$audio(src = "sound.mp3",type = "audio/mp3", autoplay = TRUE),
   tags$style(HTML("
 .selectize-input.items.not-full.has-options:before {
 content:'';
@@ -34,86 +34,76 @@ position: absolute;
  }
 
 ")),
-tags$script(src = "index.js"),
-  windowTitle = "Election Results 2022",
-  bsTooltip("check", "Extract county", "right", "hover"),
+  windowTitle = 'Election Results 2022',
+  bsTooltip("check","Extract county","right","hover"),
     header = tagList(
     useShinydashboard(),
-    tags$div(
-      id = "extract",
-    tags$img(
-      checkboxInput(
-        inputId = "check",
-        label = "",
-        width = "12px"))
+      Toggle.shinyInput("check", value = FALSE)
     ),
-      ),
   title = tags$div(
-    class = "logo",
+    class ='logo',
     tags$a(
       tags$img(
-        class = "button",
-      actionButton(inputId = "diaspora",
-                   label = "Diaspora")
+        class = 'button',
+      actionButton(inputId = 'diaspora',
+                   label = 'Diaspora')
       ),
       tags$img(
-        src = "iebc.png",
-        width = "60px"
+        src = 'iebc.png',
+        width = '60px'
       )
       ),
     tags$a(
       tags$img(
-        src = "shape.png",
-        width = "50px"
+        src = 'shape.png',
+        width = '50px'
       ),
       tags$img(
-        src = "choice.png",
-        width = "120px"
+        src = 'choice.png',
+        width = '120px'
       ))
     ),
  tabPanel(
    #create a select input
    selectizeInput(
-     inputId = "search_name",
-                     label = "County:",
-                     width = "200px",
+     inputId = 'search_name',
+                     label = 'County:',
+                     width = '200px',
                      choices = NULL,
-                     options = list(placeholder = "Search County",
+                     options = list(placeholder ='Search County',
                                     create = FALSE,
                                     maxOptions = 5,
-                                    maxItems = "1",
-                                    onDropdownOpen = I("function($dropdown) 
-                                    {if (!this.lastQuery.length)
-                                    {this.close(); 
-                                    this.settings.openOnFocus = false;}}"),
-                                    onType = I("function (str)
-                                     {if (str === \"\")
-                                     {this.close();}}"))),
+                                    maxItems = '1',
+                                    onDropdownOpen = I("function($dropdown) {if (!this.lastQuery.length) {this.close(); this.settings.openOnFocus = false;}}"),
+                                    onType = I("function (str) {if (str === \"\") {this.close();}}"))
+                     ),
    fluidRow(
-     infoBoxOutput("county_name",
+     infoBoxOutput('county_name',
                    width = 2),
-     valueBoxOutput("registered",
+     valueBoxOutput('registered',
                     width = 2),
-     valueBoxOutput("valid",
+     valueBoxOutput('valid',
                     width = 2),
-     valueBoxOutput("rejected",
+     valueBoxOutput('rejected',
                     width = 2),
-     valueBoxOutput("raila",
+     valueBoxOutput('raila',
                     width = 2),
-     valueBoxOutput("ruto",
+     valueBoxOutput('ruto',
                     width = 2),
-     valueBoxOutput("waihiga",
+     valueBoxOutput('waihiga',
                     width = 2),
-     valueBoxOutput("wajackoya",
+     valueBoxOutput('wajackoya',
                     width = 2),
-     echarts4rOutput("clock") |> loading(),
+     echarts4rOutput('clock') |> loading(),
    column(6,
             leafletOutput("livemap") |> loading_1()
    ),
    column(6,
-            echarts4rOutput("graph") |> loading_1()
+            echarts4rOutput('graph') |> loading_1()
           )
    )
    ),
  includeCSS(path = "www/styles.css")
 )
+
+

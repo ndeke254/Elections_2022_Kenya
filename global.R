@@ -16,20 +16,20 @@ library(shinycssloaders)
 library(maps)
 library(shinyBS)
 #import data file
-results <- fread(file = 'data/results.csv')
-totals <- fread(file = 'data/totals.csv')
+results <- fread(file = "data/results.csv")
+totals <- fread(file = "data/totals.csv")
 
 # append serial numbers
 results$sno <- results$sno |> as.character()
-results$sno <- case_when(nchar(results$sno)==2
-                         ~paste("0",results$sno,sep = ""),
+results$sno <- case_when(nchar(results$sno) %in% 2
+                         ~ paste("0", results$sno, sep = ""),
                          TRUE
-                         ~paste("00",results$sno,sep = ""))
+                         ~ paste("00", results$sno, sep = ""))
 
 # import the shape files
-county_shp <-readOGR(dsn= "data/shp/county.shp",
-                     layer = "county", 
-                     verbose = FALSE, 
+county_shp <- readOGR(dsn = "data/shp/county.shp",
+                     layer = "county",
+                     verbose = FALSE,
                      stringsAsFactors = FALSE)
 # rename name column
 colnames(county_shp@data)[colnames(county_shp@data) == "ADM1_EN"] <- "name"
@@ -49,18 +49,17 @@ county_shp@data$code <- c(results$sno)
 
 # loading spinner
 loading <- function(x) {
-  withSpinner(x, image = 'choice.png',
+  withSpinner(x, image = "choice.png",
               hide.ui = FALSE)
 }
 loading_2 <- function(x) {
-  withSpinner(x, image = 'name.gif',
+  withSpinner(x, image = "name.gif",
               hide.ui = FALSE)
 }
 loading_1 <- function(x) {
-  withSpinner(x, type = 8, size = 0.5,     
+  withSpinner(x, type = 8, size = 0.5,
               color = "#e6ffff",
               hide.ui = FALSE)
 }
 # graph colors
-my_colors2022 <- c('blue','yellow','red','green')
-
+my_colors2022 <- c("blue", "yellow", "red", "green")
