@@ -38,7 +38,10 @@ position: absolute;
   bsTooltip("check","Extract county","right","hover"),
     header = tagList(
     useShinydashboard(),
+    tags$div(
+      id = 'extract',
       Toggle.shinyInput("check", value = FALSE)
+      )
     ),
   title = tags$div(
     class ='logo',
@@ -46,7 +49,7 @@ position: absolute;
       tags$img(
         class = 'button',
       actionButton(inputId = 'diaspora',
-                   label = 'Diaspora')
+                   label = 'DIASPORA')
       ),
       tags$img(
         src = 'iebc.png',
@@ -67,7 +70,7 @@ position: absolute;
    #create a select input
    selectizeInput(
      inputId = 'search_name',
-                     label = 'County:',
+                     label = 'COUNTY:',
                      width = '200px',
                      choices = NULL,
                      options = list(placeholder ='Search County',
@@ -95,6 +98,7 @@ position: absolute;
      valueBoxOutput('wajackoya',
                     width = 2),
      echarts4rOutput('clock') |> loading(),
+     
    column(6,
             leafletOutput("livemap") |> loading_1()
    ),
