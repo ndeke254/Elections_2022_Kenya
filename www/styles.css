@@ -2,7 +2,7 @@
     font-family: "candara";
     font-size: 16px;
     line-height: 1.42857143;
-    color: #333;
+    color: #555;
     background-color: #b9b9b9c7;
         padding-top: 10px;
     }
@@ -91,7 +91,7 @@
     padding: 0;
     margin: 2px 0 0 0;
     z-index: 1000;
-    background: #ebfaff;
+    background: rgb(222 251 199);
     border: 1px ridge rgba(0, 0, 0, 0.15);
     border-radius: 9px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 69%);
@@ -103,14 +103,18 @@
 }
 .selectize-dropdown:hover {
     background: #bfb1b1;
-      transform: scale(1.1); 
-      box-shadow: 0px 1px 1px 1.5px #cef9ff;
+      transform: scale(1.0); 
+      box-shadow: 0px 1px 0px 1px #555;
+}
+img{
+  border: 0px;
 }
 
-.img:focus, .img:hover {
-    color: #23527c;
-    text-decoration: blink;
+img:hover {
+    border: 2px solid;
+    border-color: rgb(222 251 199);
 }
+
 .alert-info, .bg-aqua, .callout.callout-info, .label-info, .modal-info .modal-body {
     background-color: #76969f!important;
 }
@@ -129,19 +133,19 @@
     font-size: 30px;
     line-height: 90px; 
     background: rgba(0,0,0,.2);
-    border: solid #dcf3f2 3px;
+    border: solid #dcf3f2 1px;
 
 }
 .info-box {
     display: block;
     max-height: 96px;
-    background: rgb(230 255 255);
+    background: rgb(222 231 199);
     width: 100%;
-    box-shadow: 2px 2px 2px  #555;
+    box-shadow: 0px 1px 1px #555;
     border-radius: 20px;
     margin-top: 5px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  transition: transform .5s; /* Animation */
+  transition: transform .9s; /* Animation */
 }
 .info-box-text, .progress-description {
   text-transform: uppercase;
@@ -163,7 +167,7 @@
     display: block;
     margin-bottom: 10px;
     margin-top: 5px;
-    box-shadow: 0px 1px 1px 1.5px #cef9ff;
+    box-shadow:  0px 1px 1px #555;
    perspective: 1000px; /* Remove this if you don't want the 3D effect */
    transition: transform .9s; /* Animation */
 }
@@ -239,6 +243,7 @@ p {
 .legend {
     line-height: 18px;
     color: #e0feff;
+     box-shadow:  0px 1px 1px #555;
 }
 .bg-blue {
     background-color: #008bdd!important;
@@ -257,13 +262,13 @@ alert-warning, .bg-yellow, .callout.callout-warning, .label-warning, .modal-warn
     margin-left: -45px;
 }
 .btn-default.hover, .btn-default:active, .btn-default:hover {
-       background-color: #c2e7ff;
+       background-color: rgb(222 251 199) ;
    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 
    0 4px 8px 3px rgba(60,64,67,0.149);
 }
 .btn {
     border-radius: 40px;
-    background-color: #c2e7ff;
+    background-color: rgb(222 251 199) ;
 }
 div#extract {
     margin-left: 5px;
@@ -288,11 +293,11 @@ container-fluid {
     margin-left: auto;
 }
 .legend:hover {
-  background-color: #bfb1b1;
-  color: #555;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 
+   0 4px 8px 3px rgba(60,64,67,0.149);
 }
 .info {
-transition: transform .5s; /* Animation */
+transition: transform .9s; /* Animation */
 }
 
 .info:hover {
@@ -313,13 +318,15 @@ transition: transform .5s; /* Animation */
 transform: scale(1.1); 
 }
 .info-box:hover {
-  background-color: #bfb1b1;
+  background-color: rgb(222 231 199);
   transform: scale(1.1);
-  box-shadow: 0px 1px 1px 1.5px #cef9ff;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 
+   0 4px 8px 3px rgba(60,64,67,0.149);
 }
 .small-box:hover {
   transform: scale(1.1);
-   box-shadow: 2px 2px 2px #555;
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 
+   0 4px 8px 3px rgba(60,64,67,0.149);
 }
 .a:hover {
   background-color:  #555;
@@ -328,6 +335,6 @@ transform: scale(1.1);
     color: #555;
     background-color: rgb(222 251 199);
     border-radius: 20px;
-    box-shadow: 0px 0px 1px 1px rgb(60 64 67 / 30%), 
-    0px 1px 0px 1px rgb(60 64 67 / 15%);
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 
+   0 4px 8px 3px rgba(60,64,67,0.149);
 }
